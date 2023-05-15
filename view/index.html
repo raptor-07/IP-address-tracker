@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IP Address Tracker</title>
-</head>
-<body>
-  <div class="header">
-    <h1>IP ADDRESS TRACKER</h1>
-    <div class="searchIp">
-      <input type="text">
-      <input type="button" value=">">
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Address Tracker</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>IP ADDRESS TRACKER</h1>
+      <div class="searchIp">
+        <input type="text" placeholder="Enter your IP address here"/>
+        <input type="button" value=">" />
+      </div>
     </div>
-  </div>
-  <div class="infoBar">
-    <div class="ipAddress infoBar__infoCard">
-      <p>192.212.174.101</p>
+    <div class="infoBar">
+      <div class="ipAddress infoBar__infoCard">
+        <p>192.212.174.101</p>
+      </div>
+      <div class="location infoBar__infoCard">
+        <p>Brookly, NY 10001</p>
+      </div>
+      <div class="timezone infoBar__infoCard">
+        <p>UTC -05:00</p>
+      </div>
+      <div class="isp infoBar__infoCard">
+        <p>Space X Starlink</p>
+      </div>
     </div>
-    <div class="location infoBar__infoCard">
-      <p>
-        Brookly, NY 10001
-      </p>
-    </div>
-    <div class="timezone infoBar__infoCard">
-      <p>
-        UTC -05:00
-      </p>
-    </div>
-    <div class="isp infoBar__infoCard">
-      <p>
-        Space X Starlink
-      </p>
-    </div>
-  </div>
-  <div class="map">
-    <div class="map__container"></div>
-  </div>
-</body>
+    <div id="map"></div>
+  </body>
+  <script type="module" src="../controllers/getLocation.js"></script>
 </html>
