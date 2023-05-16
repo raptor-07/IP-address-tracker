@@ -1,26 +1,70 @@
-#map { height: 600px; }
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+/* font-family: 'Rubik', sans-serif; */
+
+#map {
+  height: 600px;
+}
 
 /* root-relative design pattern */
-html{
-    font-size: 20px;
+html {
+  font-size: 20px;
+}
+:root {
+  --Very-Dark-Gray: hsl(0, 0%, 17%);
+  --Dark-Gray: hsl(0, 0%, 59%);
 }
 /*write media query for mobile devices*/
 @media only screen and (max-width: 600px) {
-    html{
-        font-size: 20px;
-    }
+  html {
+    font-size: 20px;
+  }
 }
 /* write media query for tablets */
 @media only screen and (min-width: 601px) and (max-width: 768px) {
-  html{
+  html {
     font-size: 18px;
   }
 }
 /* write media query for desktops */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-  html{
+  html {
     font-size: 16px;
   }
 }
 
-
+.header{
+    background-image: url("../images/pattern-bg-desktop.png");
+}
+.header > h1{
+    color:azure;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+}
+.searchIp > input{
+    border-radius: 5px 0 0 5px;
+    border: none;
+    padding: 10px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+.searchIp > button{
+    border-radius: 0 5px 5px 0;
+    border: none;
+    padding: 10px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    background-color: var(--Very-Dark-Gray);
+    color: azure;
+}
+.infoBar__infoCard > p{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    color: var(--Dark-Gray);
+}
+.infoBar__infoCard > h1{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--Very-Dark-Gray);
+}
