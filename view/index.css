@@ -1,1 +1,26 @@
 #map { height: 600px; }
+
+/* root-relative design pattern */
+html{
+    font-size: 20px;
+}
+/*write media query for mobile devices*/
+@media only screen and (max-width: 600px) {
+    html{
+        font-size: 20px;
+    }
+}
+/* write media query for tablets */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  html{
+    font-size: 18px;
+  }
+}
+/* write media query for desktops */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  html{
+    font-size: 16px;
+  }
+}
+
+
