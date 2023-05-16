@@ -1,4 +1,5 @@
 import { validator } from "../utils/validateIp.js";
+import { renderInfoBar } from "../utils/clientRenderer.js";
 
 let ip;
 
@@ -6,18 +7,14 @@ let ip;
 document
   .getElementsByClassName("searchIp")[0]
   .childNodes[3].addEventListener("click", async function () {
-
-
     // //reinitialize map container if already initialized
-    var container = L.DomUtil.get('map');
-    if(container != null){
-        container._leaflet_id = null;
+    var container = L.DomUtil.get("map");
+    if (container != null) {
+      container._leaflet_id = null;
     }
-
 
     //get the ip from the input field
     ip = document.getElementsByClassName("searchIp")[0].childNodes[1].value;
-
 
     //validate the ip
     if (!validator(ip)) {
@@ -25,14 +22,12 @@ document
       return;
     }
 
-
     //send the ip to the geoLocation API to retrieve the location
     const apiKey = "at_aTvQZ947QB6P2hqWEssL1LAQu6OmP";
     const location = await fetch(
       `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${ip}`
     );
     const locationData = await location.json();
-
 
     //send the location data to the leaflet API
     const lat = locationData.location.lat;
@@ -45,16 +40,16 @@ document
     tiles.addTo(mymap);
     const marker = L.marker([lat, lng]).addTo(mymap);
 
+    //render the data on the info bar
+    renderInfoBar(
+      ip,
+      locationData.location.city,
+      locationData.location.timezone,
+      locationData.isp
+    );
+  });
 
-    //send the location data to the DOM
-    document.getElementsByClassName("ipAddress").innerHTML =
-      ip;
-    document.getElementsByClassName(
-      "location"
-    ).innerHTML = `${locationData.location.city}, ${locationData.location.country}`;
-    document.getElementsByClassName(
-      "timezone"
-    ).innerHTML = `UTC ${locationData.location.timezone}`;
-    document.getElementsByClassName("isp").innerHTML =
-      locationData.isp;
-});
+//reset everything on page reload
+window.onload = function () {
+  document.getElementsByClassName("searchIp")[0].childNodes[1].value = "";
+};
