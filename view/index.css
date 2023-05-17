@@ -3,12 +3,14 @@
 
 #map {
   height: 600px;
+  z-index: -1;
 }
 
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 /* root-relative design pattern */
@@ -21,6 +23,12 @@ html {
 h1 {
   margin: 0;
 }
+h2 {
+  margin: 0;
+}
+p {
+  margin: 0 0 0.5rem 0;
+}
 :root {
   --Very-Dark-Gray: hsl(0, 0%, 17%);
   --Dark-Gray: hsl(0, 0%, 59%);
@@ -28,24 +36,67 @@ h1 {
 /*write media query for mobile devices*/
 @media only screen and (max-width: 600px) {
   html {
-    font-size: 20px;
+    font-size: 16px;
+  }
+
+  body > .infoBar {
+    flex-direction: column;
+    top: 34%;
+    padding: 0.5rem;
+    min-width: 20rem;
+    align-items: center;
+  }
+  .infoBar > hr{
+    display: none;
+  }
+  .infoBar__infoCard{
+    text-align: center;
+    margin-bottom: 0.4rem;
+  }
+  .infoBar__infoCard > p{
+    margin: 0;
+  }
+  body > .header {
+    padding: 0.4rem;
+    min-height: 17rem;
+    align-items: center;
+    justify-content: center;
+  }
+  body > .header > h1{
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+  .searchIp > input{
+    min-width: 0.8rem !important;
   }
 }
 /* write media query for tablets */
 @media only screen and (min-width: 601px) and (max-width: 768px) {
   html {
-    font-size: 18px;
+    font-size: 20px;
+  }
+  body > .infoBar {
+    top: 30%;
   }
 }
 /* write media query for desktops */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   html {
-    font-size: 18px;
+    font-size: 20px;
+  }
+  body > .infoBar {
+    top: 30%;
   }
 }
 
 .header {
   background-image: url("../images/pattern-bg-desktop.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  min-height: 7rem;
 }
 .header > h1 {
   color: azure;
@@ -58,6 +109,10 @@ h1 {
   padding: 10px;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
+  min-width: 350px;
+}
+.searchIp > input:focus {
+  outline: none;
 }
 .searchIp > button {
   border-radius: 0 5px 5px 0;
@@ -72,15 +127,42 @@ h1 {
   color: var(--Dark-Gray);
   font-size: 1rem;
 }
+.searchIp > button:hover {
+  cursor: pointer;
+}
 .infoBar__infoCard > p {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 0.7rem;
   color: var(--Dark-Gray);
 }
-.infoBar__infoCard > h1 {
+.infoBar__infoCard > h2 {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: var(--Very-Dark-Gray);
+}
+.infoBar {
+  /* border: 2px solid black; */
+  background-color: azure;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.infoBar__infoCard {
+  padding: 0 0.8rem 0 0.8rem;
+}
+hr {
+  color: var(--Dark-Gray);
+  border-radius: 1rem;
+  margin: 1rem;
+  opacity: 60%;
 }
