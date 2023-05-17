@@ -3,16 +3,15 @@ import { renderInfoBar } from "../utils/clientRenderer.js";
 
 let ip;
 
-//add listener function to the button
-document
-  .getElementsByClassName("searchIp")[0]
-  .childNodes[3].addEventListener("click", async function () {
-    // //reinitialize map container if already initialized
-    var container = L.DomUtil.get("map");
-    if (container != null) {
-      container._leaflet_id = null;
-    }
+//eventHandler
+async function handleEvents(event) {
+  //reinitialize map container if already initialized
+  var container = L.DomUtil.get("map");
+  if (container != null) {
+    container._leaflet_id = null;
+  }
 
+  if (event.key === "Enter" || event.type === "click") {
     //get the ip from the input field
     ip = document.getElementsByClassName("searchIp")[0].childNodes[1].value;
 
@@ -47,7 +46,18 @@ document
       locationData.location.timezone,
       locationData.isp
     );
-  });
+  }
+}
+
+//add listener functions to the button
+document
+  .getElementsByClassName("searchIp")[0]
+  .childNodes[3].addEventListener("click", handleEvents);
+document
+  .getElementsByClassName("searchIp")[0]
+  .childNodes[1].addEventListener("keydown", handleEvents);
+
+console.log(document.getElementsByClassName("searchIp")[0].childNodes);
 
 //reset everything on page reload
 window.onload = function () {
