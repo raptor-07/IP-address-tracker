@@ -90,7 +90,7 @@ p {
 }
 
 .header {
-  background-image: url("../images/pattern-bg-desktop.png");
+  background-image: url("./images/pattern-bg-desktop.png");
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,7 +99,7 @@ p {
   min-height: 7rem;
 }
 .header > h1 {
-  color: azure;
+  color: white;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
@@ -121,7 +121,7 @@ p {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   background-color: var(--Very-Dark-Gray);
-  color: azure;
+  color: white;
 }
 .searchIp > button::placeholder {
   color: var(--Dark-Gray);
@@ -144,7 +144,7 @@ p {
 }
 .infoBar {
   /* border: 2px solid black; */
-  background-color: azure;
+  background-color: white;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
