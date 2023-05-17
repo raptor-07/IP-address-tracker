@@ -61,6 +61,7 @@ p {
     min-height: 17rem;
     align-items: center;
     justify-content: center;
+    background-image: url("./images/pattern-bg-mobile.png");
   }
   body > .header > h1{
     text-align: center;
